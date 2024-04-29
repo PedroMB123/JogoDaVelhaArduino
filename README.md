@@ -11,4 +11,4 @@
   Neste jogo é possível que o jogador 1 ou 2 ganhe, e que dê velha.
 ## Conclusão
   Com este projeto será possível executar um jogo da velha no arduino.
-  #### Criado por Pedro Berni Magrin;
+  #### Criado por Pedro Berni Magrin 29/04/2024
