@@ -1,6 +1,8 @@
 # JogoDaVelhaArduino
 ## Programação
   Código feito através do flowgorithm para que seja executado no arduino.
+## Objetivo
+  Jogo da velha via arduino
 ## Público-alvo
   Todos os públicos. Bom para os que buscam conhecer mais sobre programação
 ## Como funciona
