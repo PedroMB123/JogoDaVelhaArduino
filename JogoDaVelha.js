@@ -28,16 +28,16 @@
     haVencedor = 0;
     velha = 1;
     do {
-        window.alert(tabuleiro[0].ToString() + tabuleiro[1] + tabuleiro[2]);
-        window.alert(tabuleiro[3].ToString() + tabuleiro[4] + tabuleiro[5]);
-        window.alert(tabuleiro[6].ToString() + tabuleiro[7] + tabuleiro[8]);
+        console.log(tabuleiro[0].ToString() + tabuleiro[1] + tabuleiro[2]);
+        console.log(tabuleiro[3].ToString() + tabuleiro[4] + tabuleiro[5]);
+        console.log(tabuleiro[6].ToString() + tabuleiro[7] + tabuleiro[8]);
         jogada = "";
-        window.alert("Digite a posição de sua peça JOGADOR" + jogadorDaVez);
+        console.log("Digite a posição de sua peça JOGADOR" + jogadorDaVez);
         jogada = window.prompt('Enter a value for jogada');
         if (validaPosicao(jogada)) {
             linha = parseInt(jogada.charAt(0));
             coluna = parseInt(jogada.charAt(2));
-            window.alert("Linha: " + linha + " ; Coluna: " + coluna);
+            console.log("Linha: " + linha + " ; Coluna: " + coluna);
 
             // Verificar se a posição 'jogada' é valida.
             // Converter a jogada texto em dois inteiros, linha e coluna
@@ -58,20 +58,20 @@
 
                 // Se não houver vencedor ou empate, finalizar o jogo
             } else {
-                window.alert("Posição ocupada, jogue novamente!");
+                console.log("Posição ocupada, jogue novamente!");
 
                 // Informar ao Jogador 1 que a posição está preeenchida, é inválida e ele precisa informar uma posição válida
             }
         } else {
-            window.alert("Jogada invalida");
+            console.log("Jogada invalida");
         }
 
         // Simula a função Serial.parseint() do Arduino
     } while (haVencedor == 0 && velha <= 9);
     if (haVencedor != 0) {
-        window.alert("Parabéns pela vitória, jogador " + jogadorDaVez);
+        console.log("Parabéns pela vitória, jogador " + jogadorDaVez);
     } else {
-        window.alert("Deu velha!!");
+        console.log("Deu velha!!");
     }
 }
 
@@ -79,7 +79,7 @@ function validaPosicao(entrada) {
     var entradaValida;
 
     entradaValida = false;
-    window.alert(entrada.length());
+    console.log(entrada.length());
     if (entrada.length() == 3) {
         if (entrada.charAt(0) == "0" || entrada.charAt(0) == "1" || entrada.charAt(0) == "2") {
             if (entrada.charAt(2) == "0" || entrada.charAt(2) == "1" || entrada.charAt(2) == "2") {
