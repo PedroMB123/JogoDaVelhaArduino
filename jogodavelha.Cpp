@@ -12,32 +12,21 @@ String jogador2 = "Jogador 2";
 int getValArrayInt(int linha, int coluna, int matriz[], int qtdeLinhas)
 {
     int valor;
-    {
 
-        valor = matriz[qtdeLinhas * linha + coluna];
+    valor = matriz[qtdeLinhas * linha + coluna];
 
-        return valor;
-    }
+    return valor;
 }
-bool validaPosicao(bool entradaValida)
+bool validaPosicao(int linha, int coluna)
 {
-    entradaValida = false;
-    Serial.println(jogada.length());
-    if (jogada.length() == 3)
+    if (linha >= 0 && linha <= 2 && coluna >= 0 && coluna <= 2)
     {
-        Serial.println("Comprimento da string igual  3");
-        if (jogada[0] == '0' || jogada[0] == '1' || jogada[0] == '2')
+        if (tabuleiro[3 * linha + coluna] == 0)
         {
-            Serial.println(jogada[0]);
-            if (jogada[2] == '0' || jogada[2] == '1' || jogada[2] == '2')
-            {
-                Serial.println(jogada[2]);
-                entradaValida = true;
-            }
+            return true;
         }
     }
-
-    return entradaValida;
+    return false;
 }
 // Criar o tabuleiro e jogadores, zerar as variáveis.
 //
@@ -47,21 +36,21 @@ bool validaPosicao(bool entradaValida)
 
 // Limpar/zerar o tabuleiro
 
-for (index = 0; index <= 8; index++)
-{
-    tabuleiro[index] = 0;
-}
-
 // Anotar/Registrar a jogada, do primeiro jogador
 void setup()
 {
-    Serial.begin(11500);
+    Serial.begin(112500);
 }
 
 void loop()
 {
     haVencedor = false;
     velha = 1;
+    for (index = 0; index <= 8; index++)
+    {
+        tabuleiro[index] = 0;
+    }
+
     // Iniciar o jogo, definir quem joga primeiro
     jogadorDaVez = 1;
     while (!haVencedor || velha <= 9)
@@ -80,10 +69,10 @@ void loop()
         Serial.println(jogadorDaVez);
         jogada = Serial.readString();
 
-        linha = int(jogada[0] = '0');
-        coluna = int(jogada[2] = '0');
+        linha = int(jogada[0]) - '0';
+        coluna = int(jogada[2]) - '0';
 
-        if (validaPosicao(linha, coluna) == true)
+        if (validaPosicao(linha, coluna))
         {
 
             // Converter a jogada texto em dois inteiros linha e coluna.
